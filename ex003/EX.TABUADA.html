@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODELO DE EXERCÍCIO</title>
+    <style>
+        body {
+ background : rgb(95, 95, 228);
+ font : normal 15pt Arial;
+}
+header {
+   color: white;
+   text-align: center;
+}
+section {
+   background : white;
+   border-radius : 10px;
+   padding: 15px;
+   width: 500px;
+   margin: auto;
+   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.411);
+}
+footer{
+   color: white;
+   text-align: center;
+   font-style: italic;
+}
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+     <h1> Tabuada </h1>
+    </header>
+    <section>
+     <div>
+        <p>
+           Número <input type="Number" name="txtn" id="txtn">
+           <input type="button" value="Gerar Tabuada" onclick="Tabu()"> 
+        </p>
+
+     </div>
+     <div id="last">
+        <select name="Tabuada" id="seltab" size="10"></select>
+     </div>
+    </section>
+    <footer>
+     <p>&copy;PedroThalles</p>
+    </footer>
+    <script>
+        function Tabu() {
+            var num = Number(document.getElementById('txtn').value)
+            var tab = document.getElementById('seltab')
+            if ( document.getElementById('txtn').value.length == 0) {
+                window.alert('[ERRO] Você precisa escrever um número!')
+         } else { var c = 1
+            tab.innerHTML = ''
+                while (c <= 10) {
+                    var item = document.createElement('option')
+                    tab.appendChild(item)
+                    item.textContent = `${num} x ${c} = ${num*c}`
+                    c++ 
+                                   }
+            }
+        }
+        document.addEventListener("keydown",function(Atalho) {
+            if (Atalho.key === "Enter") {
+            var num = Number(document.getElementById('txtn').value)
+            var tab = document.getElementById('seltab')
+            if ( document.getElementById('txtn').value.length == 0) {
+                window.alert('[ERRO] Você precisa escrever um número!')
+         } else { var c = 1
+            tab.innerHTML = ''
+                while (c <= 10) {
+                    var item = document.createElement('option')
+                    tab.appendChild(item)
+                    item.textContent = `${num} x ${c} = ${num*c}`
+                    c++ 
+                                   }
+            }
+        }
+        })
+    </script>
+    
+</body>
+</html>

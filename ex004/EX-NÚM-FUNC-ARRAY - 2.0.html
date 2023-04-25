@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXAMINANDO NÚMEROS</title>
+    <style>
+        body {
+ background : rgb(95, 95, 228);
+ font : normal 15pt Arial;
+}
+header {
+   color: white;
+   text-align: center;
+}
+section {
+   background : white;
+   border-radius : 10px;
+   padding: 15px;
+   width: 500px;
+   margin: auto;
+   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.411);
+}
+footer{
+   color: white;
+   text-align: center;
+   font-style: italic;
+}
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="tit"> Examinando números</h1>
+       </header>
+       <section>
+        <div>
+           Número (entre 1 e 100)<input type="Number" name="valor" id="valor">
+           <input type="button" value="Verificar" name="verify" id="verify" onclick="Ver()">
+   
+        </div>
+        <div>
+            <select id="selval" size="10"></select> <br> 
+            <input type="button" value="Concluir" id="done" onclick="Con()"> <input type="button" value="Limpar" id="clean" onclick="Lim()">
+        </div>
+        <div>
+         <p id="txt1"></p>
+        </div>
+       </section>
+       <footer>
+        <p id="registro">&copy;PedroThalles</p>
+       </footer>
+       <script> 
+        function ENumero(x){
+            if(x >= 1 && x <= 100){
+                return true
+            } else{
+                return false
+            }
+        }
+        var FValor = document.getElementById('valor')
+        var vari = []
+        var c = 0
+        function Ver(){
+            x=Number(FValor.value)
+            if(ENumero(x) && vari.indexOf(FValor.value) === -1 ) {
+                var op=document.createElement('option')
+                op.textContent=`Valor ${FValor.value} adicionado`
+                var lista= document.getElementById('selval')
+                lista.appendChild(op)
+                vari [c] = FValor.value
+                c++
+                FValor.value =''
+                FValor.focus()
+                console.log(vari)
+            } else {
+                window.alert('[ERRO] Número inválido ou já presente na lista!')
+                FValor.value=''
+                FValor.focus()
+            }
+        }
+        function Con(){
+            var conclusao = document.getElementById('txt1')
+            conclusao.innerHTML=''
+            var p = document.createElement('p')
+            if (vari.length == 1) {
+                p.textContent='Ao todo, temos um elemento.'
+                conclusao.appendChild(p)
+            } else if (vari.length > 1){
+                p.textContent=`Ao todo, temos ${vari.length} elementos.`
+                conclusao.appendChild(p)
+            }
+            var soma = 0
+            var maior = vari[0]
+            var menor = vari[0]
+            for (var final in vari) {
+                if (vari[final] > maior){
+                    maior = vari[final]
+                }
+                if (vari[final] < menor){
+                    menor = vari[final]
+                }
+                soma += Number(vari[final])                                
+            }
+            var media = soma / vari.length
+            conclusao.innerHTML += `<p> O maior número é o ${maior}</p>`
+            conclusao.innerHTML += `<p> O menor número é o ${menor}</p>`
+            conclusao.innerHTML += `<p> A soma dos números é ${soma}</p>`
+            conclusao.innerHTML += `<p> A média aritmétrica dos números é ${media}</p>`       
+        }
+        function Lim(){
+            var lista = document.getElementById('selval')
+            lista.innerHTML = ''
+            c=0
+            vari = []
+            document.getElementById('txt1').innerHTML=''
+        }
+        document.addEventListener("keydown",function(vrf){
+            if(vrf.key === "Enter") {
+                x=Number(FValor.value)
+            if(ENumero(x) && vari.indexOf(FValor.value) === -1 ) {
+                var op=document.createElement('option')
+                op.textContent=`Valor ${FValor.value} adicionado`
+                var lista= document.getElementById('selval')
+                lista.appendChild(op)
+                vari [c] = FValor.value
+                c++
+                FValor.value =''
+                FValor.focus()
+                console.log(vari)
+            } else {
+                window.alert('[ERRO] Número inválido ou já presente na lista!')
+                FValor.value=''
+                FValor.focus()
+            }  
+            }
+        })
+       </script>   
+</body>
+</html>

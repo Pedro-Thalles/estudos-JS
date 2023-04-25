@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NUM-FUNC-ARRAY</title>
+    <link rel="stylesheet" href="estilo.css">
+    <style>
+        body {
+ background : rgb(95, 95, 228);
+ font : normal 15pt Arial;
+}
+header {
+   color: white;
+   text-align: center;
+}
+section {
+   background : white;
+   border-radius : 10px;
+   padding: 15px;
+   width: 500px;
+   margin: auto;
+   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.411);
+}
+footer{
+   color: white;
+   text-align: center;
+   font-style: italic;
+}
+    </style>
+</head>
+<body>
+    <header>
+     <h1 id="tit"> Examinando números</h1>
+    </header>
+    <section>
+     <div>
+        Número (entre 1 e 100)<input type="Number" name="valor" id="valor">
+        <input type="button" value="Verificar" name="verify" id="verify" onclick="Ver()">
+
+     </div>
+     <div>
+         <select id="selval" size="10"></select> <br> 
+         <input type="button" value="Concluir" id="done" onclick="Con()">
+     </div>
+     <div>
+      <p id="txt1"></p>
+     </div>
+    </section>
+    <footer>
+     <p id="registro">&copy;PedroThalles</p>
+    </footer>
+    <script>
+      function NaLista(x,y){
+         if(y.indexOf(x) != -1) {
+            return true
+         } else {
+            return false
+         }
+      }
+      var vari = []
+      var c = 0
+      function Ver() {
+         var selv = document.getElementById('selval')
+         var form = document.getElementById('valor')
+         var op = document.createElement("option")
+         var n = form.value
+         op.textContent = `Valor ${n} adicionado` 
+         if( NaLista(document.getElementById('valor').value , vari) ) {
+            window.alert('[ERRO] Número já presente na lista')
+         }
+         else if (document.getElementById('valor').value >=1 && document.getElementById('valor').value <=100) {
+            
+         document.getElementById('selval').appendChild(op)
+         vari[c] = document.getElementById('valor').value
+         document.getElementById('tit').innerHTML= vari[0]
+         document.getElementById('registro').innerHTML= vari[1]
+         c++
+         document.getElementById('valor').value = ''        
+         document.getElementById('txt1').innerHTML=''} else if(document.getElementById('valor').value < 1 || document.getElementById('valor').value > 100 || document.getElementById('valor').value == '') {
+            window.alert('[ERRO] Número inválido ou não presente entre 1 e 100!')
+            
+         }  
+      }
+      function Con() {
+         if (document.getElementById('valor').value='') {
+            window.alert('[ERRO] Coloque números antes de iniciar!')
+         } else {
+         document.getElementById('txt1').innerHTML = `Ao todo temos ${vari.length} elementos`
+      }}
+   
+    </script>
+    
+</body>
+</html>

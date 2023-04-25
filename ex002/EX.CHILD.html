@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listador</title>
+</head>
+<body>
+    <div>
+        <input type="text" name="elemento" id="el"> <input type="button" value="Listar" name="listar" id="li" onclick="FazerLista()"> <br>
+        <ul id="Lista">
+            
+        </ul> <br>
+        <input type="button" value="Limpar" name="lim" id="lim" onclick="Limpar()">
+        
+    </div>
+<script>
+    function Limpar() {
+        document.getElementById('Lista').textContent = ''
+        
+    }
+    function FazerLista() {
+        var el = document.getElementById('el')
+        var lis = document.getElementById('Lista')
+        var li = document.createElement('li')
+        li.textContent = el.value
+        lis.appendChild(li)
+        el.value=''
+    }
+    function iniciar() {
+        var p = document.createElement("p")
+        p.textContent = 'Pedro Thalles'
+        document.body.appendChild(p)
+        }
+    window.addEventListener("load",iniciar)
+</script>    
+</body>
+</html>

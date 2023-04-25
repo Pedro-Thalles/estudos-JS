@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mudou de preço?</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1{
+            font-size: 80px;
+        }
+        input{
+            font-size: 40px;
+            padding:30px;
+        }
+        .firstp{
+            font-size:25px;
+        }
+        .resultitle1{
+            font-size: 50px;
+            display:none;
+        }
+        .resultitle2{
+            font-size: 50px;
+            display:block;
+        }
+        div p{
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Preço mudou</h1>
+    <input type="button" value="Verificar" onclick="Verify()">
+    <p class="firstp">Clique no botão acima para verificar se houve mudança de preço.</p>
+    <div>
+        <h2 class="resultitle1">Analisando os valores informados</h2>
+        <p class="resulp1"></p>
+        <p class="resulp2"></p>
+        <p class="resulp3"></p>
+        <p class="resulp4"></p>
+    </div>
+    <script>
+        function Verify(){
+            document.querySelector('.firstp').innerHTML=''
+            document.querySelector('.resultitle1').classList.add('resultitle2')
+            document.querySelector('.resultitle2').classList.remove('resultitle1')
+            var before = Number(window.prompt('Qual é o preço anterior do produto?'))
+            var after = Number(window.prompt('Qual é o preço atual do produto?')) 
+            document.querySelector('.resulp1').innerHTML= `O produto custava R$ ${before.toFixed(2)} e agora custa R$ ${after.toFixed(2)}.`
+            if(before < after) {document.querySelector('.resulp2').innerHTML= `Hoje o produto está mais caro` } else if((before==after)){
+                document.querySelector('.resulp2').innerHTML= `Hoje o produto está pelo mesmo preço`
+            } else if(before > after){
+                document.querySelector('.resulp2').innerHTML= `Hoje o produto está mais barato`
+            }                            
+            if(before < after){
+                document.querySelector('.resulp3').innerHTML= `O preço subiu R$ ${(after - before).toFixed(2)} em relação ao preço anterior`
+            }  if(before > after){
+                document.querySelector('.resulp3').innerHTML= `O preço caiu R$ ${(before - after).toFixed(2)} em relação ao anterior`
+            }
+            if(before < after){
+                document.querySelector('.resulp4').innerHTML= `Uma variação de ${(((after/before)-1)*100).toFixed(2)} % pra cima`
+            }  if(before > after){
+                document.querySelector('.resulp4').innerHTML= `Uma variação de ${(((before/after)-1)*100).toFixed(2)} % pra baixo`
+            }
+        }
+                
+    </script>   
+</body>
+</html>

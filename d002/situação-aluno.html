@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Situação do Aluno</title>
+    <style>
+         body{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        h1{
+            font-size: 80px;
+        }
+        input{
+            font-size: 40px;
+            padding:30px;
+        }
+        .firstp{
+            font-size:25px;
+        }
+        .resultitle1{
+            font-size: 50px;
+            
+        }
+        .resultitle2{
+            font-size: 50px;
+            display:block;
+        }
+        div p{
+            font-size: 25px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Situação do Aluno</h1>
+    <input type="button" value="Entrar com as notas" onclick="Verify()">
+    <p class="firstp">Clique no botão acima para verificar se houve mudança de preço.</p>
+    <div>
+        <h2 class="resultitle1"><strong class="enfase"></strong></h2>
+        <p class="resulp1"></p>
+        <p class="resulp2"></p>
+    </div>
+    <script>
+        function Verify(){
+            var Nome = prompt('Qual é o nome do aluno')
+            var Nota1 = Number(prompt(`Qual foi a primeira nota de ${Nome}?`))
+            var Nota2 = Number(prompt(`Qual foi a segunda nota de ${Nome}?`))
+            var media = (Nota1 + Nota2)/2 
+            document.querySelector('.resultitle1').innerHTML=`Analisando situação de ${Nome}` 
+            document.querySelector('.firstp').innerHTML=''
+            document.querySelector('.resulp1').innerHTML=`Com as notas ${Nota1} e ${Nota2}, a média é ${media}`
+            if (media >= 6){
+                document.querySelector('.resulp2').innerHTML=`Com a média ${media}, o resultado final é Aprovado`
+            } else if(media < 6 && media >= 2){
+                document.querySelector('.resulp2').innerHTML=`Com a média ${media}, o resultado final é Em Recuperação`
+            } else {
+                document.querySelector('.resulp2').innerHTML=`Com a média ${media}, o resultado final é Reprovado`
+            }
+
+            }
+                         
+        
+        
+    </script>
+</body>
+</html>

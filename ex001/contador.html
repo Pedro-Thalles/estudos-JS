@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador</title>
+    
+</head>
+<body>
+    <h1 id="tit"> CONTADOR </h1>
+    <div id="botão" onclick="Contar()">
+        Contar
+    </div> 
+    <div>
+        <input type="button" value="Limpar" id="limpar" onclick="Apagar()">
+    </div>   
+    <script>
+        document.addEventListener("keydown",function(recomeçar) {
+            if (recomeçar.key === "Backspace") {
+                document.getElementById('botão').innerHTML = 'Contar'
+            c = 0  
+            }
+        })
+        document.addEventListener("keydown",function(apertar) {
+            if (apertar.key === "Enter") {
+                c = c + 1
+            document.getElementById('botão').innerHTML = c   
+            }
+        })
+        function Apagar() {
+            document.getElementById('botão').innerHTML = 'Contar'
+            c = 0
+        }
+        document.getElementById('tit').style.color = 'blue'
+        document.getElementById('botão').style.background = 'green'
+        var c = 0
+        function Contar() {
+            c = c + 1
+            document.getElementById('botão').innerHTML = c
+            
+        }
+        
+    </script>
+</body>
+</html>
