@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul{
+    list-style-type: none;
+}
+body{
+    font-family:'Poppins', sans-serif ;
+    margin: 0 auto;
+    max-width:1280px;
+    background-color: #5e5b5bad;
+}
+body.modo-escuro{
+    background-color: #212121;
+    color:white;
+}
+header{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    /*O padrão é row. O space-between vai deixar um na ponta e outro na outra.*/
+    padding:25px; 
+}
+header .logo , header .imagem-botao{
+    width:30px;
+    transition: 0.2s ease-in-out;
+}
+header #botao-alterar-tema{
+    background:none;
+    border-style: none;
+    cursor:pointer; /*para deixar a mãozinha*/
+}
+header .logo:hover , header .imagem-botao:hover{
+    transform: scale(1.4);
+}
+main{
+    padding: 25px;
+}
+main .listagem-gifs{
+    display: flex;
+    flex-wrap: wrap;
+    gap:30px;
+    justify-content: center;
+}
+main .cartao-gif{
+    background-color: #d8e3ec;
+    width: 200px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:15px;
+    border-radius: 15px;
+    transition: 0.2s ease-in-out;
+     
+}
+main .cartao-gif:hover{
+    background-color: #96d9d6;
+    transform: scale(1.05);
+}
+.modo-escuro .cartao-gif{
+    background-color:#a8a8a8 ;
+}
+main .cartao-gif .informacoes{
+    display: flex;
+    justify-content: space-between;
+    border-style: solid;
+    border-width: 1px;
+    border-color: black;
+    border-radius: 10px;
+}
+main .cartao-gif .informacoes span{
+    padding:5px;
+}
+main .cartao-gif .gif{
+    width:90px;
+    height:90px;
+}
+main .cartao-gif .tipos{
+    display: flex;
+    gap: 15px;
+}
+main .cartao-gif .tipo{
+    padding: 8px;
+    border-radius: 10px;
+}
+.cinza{
+    background-color: darkgrey;
+}
+.laranja{
+    background-color: orange;
+}
+.bege{
+    background-color: #b99f83;
+}
+.vermelho{
+    background-color: rgb(254, 88, 88);
+}
+.branco{
+    background-color: white;
+}
+main .descricao{
+    max-height: 80px;
+    overflow-y: scroll;
+    font-size: 14px;
+    padding-right: 10px; 
+}
+*::-webkit-scrollbar{
+    width:12px;
+}
+*::-webkit-scrollbar-track{
+    background-color: white;
+}
+*::-webkit-scrollbar-thumb{
+    background-color: #582965;
+    border-radius: 10px;
+    border: 3px solid white;
+}
