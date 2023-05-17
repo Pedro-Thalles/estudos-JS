@@ -14,7 +14,7 @@ body{
     background-color: #5e5b5bad;
 }
 body.modo-escuro{
-    background-color: #212121;
+    background-color: #23272A;
     color:white;
 }
 header{
@@ -62,7 +62,7 @@ main .cartao-gif:hover{
     transform: scale(1.05);
 }
 .modo-escuro .cartao-gif{
-    background-color:#a8a8a8 ;
+    background-color:#5B5F62 ;
 }
 main .cartao-gif .informacoes{
     display: flex;
