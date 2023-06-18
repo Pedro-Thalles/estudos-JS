@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .cor{
+            background-color: green;
+            text-align: center;
+            width:500px;
+            height:500px;
+            margin:auto;
+        }
+        .cor:hover{
+            background-color: pink;
+            cursor: pointer;
+        }
+        .imagem{
+           background-image: url(./imagem/100065-banana-prata-unidade\ \(1\).webp); 
+           background-position: center center;
+        }
+    </style>
+</head>
+<body>
+    <div class="cor" onclick="Clicar()">Aperte-me</div>
+    <script>
+        function Clicar(){
+            document.querySelector('.cor').classList.add('imagem')
+            console.log(document.querySelector('.cor').classList)
+        }
+    </script>
+</body>
+</html>
